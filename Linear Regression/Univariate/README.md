@@ -1,16 +1,12 @@
-```
+```python
 #importing libraries
 
 import pandas as pd              # pandas for dataset manipulation
 import matplotlib.pyplot as plt  # matplotlib for graphical plots
 import numpy as np               # numpy for array
-
-# import jtplot module in notebook
-from jupyterthemes import jtplot
-jtplot.style()
 ```
 
-```
+```python
 data = pd.read_csv("ex1data1.txt") # reading comma separated data
 
 df = pd.DataFrame(data)            # creating a DataFrame
@@ -20,7 +16,7 @@ y = df.iloc[:, 1].values
 m = len(x)
 ```
 
-```
+```python
 # Visualizing the dataset
 plt.xlabel("Population of City in 10,000s")
 plt.ylabel("Profit in $10,000s")
@@ -29,7 +25,7 @@ plt.plot(x, y, "ro")
 
 ![png](output_2_1.png)
 
-```
+```python
 # array of [ones, x] of shape (m, 2)
 X = np.c_[np.ones(m, dtype=np.float64), np.array(x, dtype=np.float64)]
 
@@ -40,7 +36,7 @@ cost_history = []
 theta_vals = np.c_[np.ones((iterations, 2), dtype=np.float64)]
 ```
 
-```
+```python
 #Calculating the cost function
 def computeCost(X, y, theta):
     cost = 0
@@ -51,11 +47,11 @@ def computeCost(X, y, theta):
     return cost
 ```
 
-```
+```python
 computeCost(X, y, theta)  # compute cost for theta at [[0], [0]]
 ```
 
-```
+```python
 def gradientDescent(X, y, theta, alpha, iterations):
 
     for iters in range(iterations):
@@ -77,12 +73,12 @@ def gradientDescent(X, y, theta, alpha, iterations):
     return theta
 ```
 
-```
+```python
 # final theta value for minimum cost
 theta = gradientDescent(X, y, theta, alpha, iterations)
 ```
 
-```
+```python
 # Plotting linear regression
 plt.xlabel("Population of City in 10,000s")
 plt.ylabel("Profit in $10,000s")
